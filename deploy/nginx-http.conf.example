@@ -1,0 +1,8 @@
+# HTTP：把 80 端口跳转到 HTTPS，同时保留 ACME 挑战路径
+server {
+    listen 80;
+    listen [::]:80;
+    server_name guild.example.com;
+    location /.well-known/acme-challenge/ { root /var/www/warrior-base-acme; }
+    location / { return 301 https://guild.example.com$request_uri; }
+}

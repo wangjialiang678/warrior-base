@@ -1,0 +1,25 @@
+[Unit]
+Description=Warrior Base course gallery
+After=network.target
+
+[Service]
+Type=simple
+User=warrior-base
+Group=warrior-base
+WorkingDirectory=/opt/warrior-base/current
+EnvironmentFile=/etc/warrior-base.env
+ExecStart=/usr/bin/node server/index.js
+Restart=on-failure
+RestartSec=5
+# 数据目录与密钥只对本服务用户可读
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/warrior-base
+MemoryMax=600M
+TasksMax=128
+
+[Install]
+WantedBy=multi-user.target

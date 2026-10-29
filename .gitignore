@@ -1,0 +1,11 @@
+node_modules/
+!package-lock.json
+dist/
+.env
+.env.*
+!.env.example
+data/
+data-demo/
+test-results/
+.sites-runtime/
+*.log
